@@ -10,7 +10,17 @@ async function create (mentorData) {
     return mentorCreated
 }
 
+function deleteById (id) {
+    return Mentor.findByIdAndRemove(id)
+}
+
+function updateById(id, newMentorData) {
+    return Mentor.findByIdAndUpdate(id, newMentorData)
+}
+
 module.exports = {
     getAll,
-    create    
+    create ,
+    deleteById,
+    updateById   
 }

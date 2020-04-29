@@ -2,18 +2,26 @@ const Koder =require('../models/koders')
 
 // los casos de uso son las acciones que puede ejercer un usuario en el sistema
 
-async function getAll () {
-    const allKoders = await Koder.find()
-    return allKoders
+function getAll () {
+    return Koder.find()    
 }
 
-async function create (koderData) {
-    const koderCreated = await Koder.create(koderData)
-    return koderCreated
+function create (koderData) {
+    return Koder.create(koderData)    
+}
+
+function deleteById (id) {
+    return Koder.findByIdAndRemove(id)
+}
+
+function updateById(id, newKoderData) {
+    return Koder.findByIdAndUpdate(id, newKoderData)
 }
 
 //exporta un objeto
 module.exports = {
     getAll,
-    create    
+    create,
+    deleteById,
+    updateById
 }
